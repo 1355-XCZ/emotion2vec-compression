@@ -96,7 +96,7 @@ def collect_samples_by_emotion(data_root: Path, dataset_name: str):
     return samples_by_emotion
 
 
-def sample_subset(samples_by_emotion, samples_per_emotion: int, seed: int = 42):
+def sample_subset(samples_by_emotion, samples_per_emotion: int, seed: int = 1344871):
     """
     Randomly sample specified number of samples from each emotion category
     
@@ -194,7 +194,7 @@ def save_subset_info(subset, output_file: Path, dataset_name: str, samples_per_e
 
 
 def prepare_dataset_subset(dataset_name: str, source_root: str, target_root: str, 
-                          samples_per_emotion: int = 100, seed: int = 42):
+                          samples_per_emotion: int = 100, seed: int = 1344871):
     """
     Prepare evaluation subset for single dataset
     
@@ -255,8 +255,8 @@ def main():
                        help='Target data root directory (default: data_subset)')
     parser.add_argument('--samples', type=int, default=100,
                        help='Number of samples per emotion (default: 100)')
-    parser.add_argument('--seed', type=int, default=42,
-                       help='Random seed (default: 42)')
+    parser.add_argument('--seed', type=int, default=1344871,
+                       help='Random seed (default: 1344871)')
     parser.add_argument('--datasets', type=str, nargs='+', 
                        default=['ESD', 'IEMOCAP', 'RAVDESS'],
                        help='Datasets to process (default: ESD IEMOCAP RAVDESS)')

@@ -92,7 +92,7 @@ python prepare_evaluation_subset.py \
     --source-data data \
     --target-data data_subset \
     --samples 100 \
-    --seed 42
+    --seed 1344871
 ```
 
 **Data Statistics**:
@@ -100,7 +100,7 @@ python prepare_evaluation_subset.py \
 - **IEMOCAP**: 4 emotions × 100 = 400 samples  
 - **RAVDESS**: 7 emotions × 100 = 700 samples
 
-**Important Note**: The evaluation subset (`data_subset/`) is a smaller version sampled from the full test datasets. Due to the reduced sample pool, the specific samples selected by the random seed (42) may differ from those in the paper's full evaluation. However, **the overall trends and conclusions remain consistent** across different sample selections. This subset is designed to enable quick verification of the reproduction pipeline while maintaining representative results.
+**Important Note**: The evaluation subset (`data_subset/`) is a smaller version sampled from the full test datasets. Due to the reduced sample pool, the specific samples selected by the random seed (1344871) may differ from those in the paper's full evaluation. However, **the overall trends and conclusions remain consistent** across different sample selections. This subset is designed to enable quick verification of the reproduction pipeline while maintaining representative results.
 
 ### Step 3: Run Full Experiment
 
@@ -462,7 +462,7 @@ python prepare_evaluation_subset.py \
     --source-data data \
     --target-data data_subset \
     --samples 100 \
-    --seed 42
+    --seed 1344871
 ```
 
 **数据统计**：
@@ -470,7 +470,7 @@ python prepare_evaluation_subset.py \
 - **IEMOCAP**: 4情感 × 100 = 400样本
 - **RAVDESS**: 7情感 × 100 = 700样本
 
-**重要说明**：评估子集（`data_subset/`）是从完整测试数据集中抽样的较小版本。由于样本池减少，随机种子（42）选择的具体样本可能与论文完整评估中的样本不同。但是，**整体趋势和结论在不同样本选择下保持一致**。此子集旨在快速验证复现管道的同时保持结果的代表性。
+**重要说明**：评估子集（`data_subset/`）是从完整测试数据集中抽样的较小版本。由于样本池减少，随机种子（1344871）选择的具体样本可能与论文完整评估中的样本不同。但是，**整体趋势和结论在不同样本选择下保持一致**。此子集旨在快速验证复现管道的同时保持结果的代表性。
 
 ### 步骤3：运行完整实验
 
