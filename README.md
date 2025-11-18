@@ -155,6 +155,8 @@ Pre-trained checkpoints are provided. To retrain from scratch:
 
 ### 1. Prepare Training Data
 
+**Note**: Due to copyright restrictions and dataset size limitations, the complete training dataset (Emilia, 100 hours) is not included in this repository. If you need access to the full training data for reproduction purposes, please contact the author via email: **haoguangz@student.unimelb.edu.au**
+
 ```bash
 # Download Emilia dataset (100h Chinese-English)
 # Extract emotion2vec features
@@ -520,6 +522,8 @@ evaluation_results/
 已提供预训练模型。如需从头训练：
 
 ### 1. 准备训练数据
+
+**注意**：由于版权限制和数据集大小限制，完整的训练数据集（Emilia，100小时）未包含在本仓库中。如需获取完整训练数据用于复现，请通过邮箱联系作者：**haoguangz@student.unimelb.edu.au**
 
 ```bash
 # 下载Emilia数据集（100h中英文）
