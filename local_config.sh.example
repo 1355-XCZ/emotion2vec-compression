@@ -1,0 +1,116 @@
+#!/bin/bash
+
+# ============================================================================
+# Local Configuration Template
+# ============================================================================
+# Copy this file to local_config.sh and modify with your paths
+# 
+# SECURITY NOTE: local_config.sh is git-ignored to protect sensitive paths
+# and API tokens. DO NOT commit local_config.sh to version control.
+# ============================================================================
+
+# Project root directory
+export PROJECT_ROOT="/data/gpfs/projects/punim2341/haoguangzhou/voice/my-research/to_ready/MyAudioResearchModel"
+
+# Virtual environment path
+export VENV_PATH="${PROJECT_ROOT}/venv"
+
+# Data directories
+export DATASET_ROOT="${PROJECT_ROOT}/data"              # Raw audio datasets
+export EVAL_FEATURES_ROOT="${PROJECT_ROOT}/data"        # Extracted emotion2vec features (.npy files)
+export DATA_SUBSET_ROOT="${PROJECT_ROOT}/data_subset"   # Evaluation subset for reproduction
+
+# Model checkpoints
+export CHECKPOINT_DIR="${PROJECT_ROOT}/checkpoints"
+export RVQ_CHECKPOINT="${CHECKPOINT_DIR}/grouped_rvq_best.pt"
+export ENTROPY_CHECKPOINT="${CHECKPOINT_DIR}/entropy_model_best.pt"
+
+# Results directory
+export RESULTS_DIR="${PROJECT_ROOT}/evaluation_results"
+
+# ============================================================================
+# SLURM Configuration (if using HPC cluster)
+# ============================================================================
+
+# Account and partition
+export SLURM_ACCOUNT="punim2341"
+export SLURM_PARTITION="gpu-l40s"
+
+# Job resources
+export SLURM_NODES=1
+export SLURM_NTASKS=1
+export SLURM_CPUS_PER_TASK=8
+export SLURM_MEM="64G"
+export SLURM_GPUS=1
+export SLURM_TIME="48:00:00"
+
+# Email notifications (optional)
+export SLURM_MAIL_USER="haoguangz@student.unimelb.edu.au"
+export SLURM_MAIL_TYPE="END,FAIL"
+
+# ============================================================================
+# Model Configuration (Advanced)
+# ============================================================================
+
+# Emotion2vec model
+export EMOTION2VEC_MODEL="iic/emotion2vec_base"
+export EMOTION2VEC_CACHE="/path/to/modelscope/cache"  # Optional: specify model cache directory
+
+# Grouped-RVQ configuration
+export GRVQ_NUM_GROUPS=12
+export GRVQ_LAYERS_PER_GROUP=3
+export GRVQ_CODEBOOK_SIZE=128
+
+# Entropy model configuration
+export ENTROPY_LAYERS=6
+export ENTROPY_DIM=256
+export ENTROPY_HEADS=8
+
+# ============================================================================
+# Evaluation Configuration
+# ============================================================================
+
+# Rate sweep points (BPF - bits per frame)
+export RATE_POINTS_FULL="10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,200,220,240,260,280,300"
+export RATE_POINTS_QUICK="10,100,200,300"
+
+# Samples per emotion (for reproduction)
+export SAMPLES_PER_EMOTION=100
+export RANDOM_SEED=42
+
+# ============================================================================
+# Python Environment
+# ============================================================================
+
+# Ensure pip and setuptools are up-to-date
+export PIP_UPGRADE="pip setuptools wheel"
+
+# Optional: specify CUDA version if multiple versions are available
+# export CUDA_HOME="/usr/local/cuda-11.8"
+# export LD_LIBRARY_PATH="${CUDA_HOME}/lib64:${LD_LIBRARY_PATH}"
+
+# ============================================================================
+# Logging
+# ============================================================================
+
+export LOG_DIR="${PROJECT_ROOT}/logs"
+export LOG_LEVEL="INFO"  # DEBUG, INFO, WARNING, ERROR
+
+# ============================================================================
+# API Tokens (if needed for downloading models)
+# ============================================================================
+
+# ModelScope token (optional, for private models)
+# export MODELSCOPE_API_TOKEN="your_token_here"
+
+# HuggingFace token (optional, for accessing gated models)
+# export HUGGINGFACE_TOKEN="your_token_here"
+
+# ============================================================================
+# End of Configuration
+# ============================================================================
+
+echo "✓ Local configuration loaded from: $BASH_SOURCE"
+echo "✓ Project root: $PROJECT_ROOT"
+echo "✓ Python venv: $VENV_PATH"
+echo "✓ Dataset root: $DATASET_ROOT"

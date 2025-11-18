@@ -1,0 +1,90 @@
+# Local configuration (contains secrets)
+local_config.sh
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+reproduce_venv/
+test_venv/
+test_venv_*/
+venv_test_*/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# PyTorch
+*.pt
+*.pth
+*.ckpt
+
+# Exceptions: keep best models
+!checkpoints/grouped_rvq_best.pt
+!checkpoints/entropy_model_best.pt
+# traditional_rvq_16L.pt is too large (109MB > 100MB GitHub limit)
+
+# Training outputs
+checkpoints/logs/
+checkpoints/results/
+indices_cache/
+logs/
+*.log
+
+# Evaluation results (optional: keep or ignore)
+evaluation_results/
+evaluation_quick_v2_results/
+evaluation_results_quick/
+evaluation_results_4points/
+evaluation_results_test/
+
+# Archive and temporary directories (historical files, not for release)
+archive/
+backup/
+old_code/
+checkpoints_backup_normalized/
+temp_scripts/
+temp_files/
+temp_plots/
+
+# data_subset directory: evaluation subset (provided for reviewers, should be committed)
+# Contains 1600 randomly sampled samples (seed=42)
+# Exception must be declared before ignore rules
+!data_subset/
+
+# Data files (too large for git)
+# Not using *.npy to allow data_subset to be tracked
+# Instead ignore specific directories
+data/
+!data_subset/
+checkpoints/*.npy
+checkpoints/**/*.npy
+*.npz
+*.wav
+*.flac
+*.mp3
+
+# Exceptions: keep normalization parameters
+!ev2_mean_std_100h_EN_ZH.npz
